@@ -1,3 +1,33 @@
+## WPILib Installation
+
+For a more comprehensive installation guide, visit the [WPILib docs](https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-2/wpilib-setup.html). Otherwise, follow the appropriate guide below. All installers can be found on [the latest GitHub WPILib release](https://github.com/wpilibsuite/allwpilib/releases/).
+
+### Windows
+
+1. Scroll down to the downloads section of the latest release and select the Windows option.
+2. Extract the installer `.iso` file by right clicking it and selecting `Mount` or by installing [7-Zip](https://www.7-zip.org/download.html) and using the `7-Zip > Extract to WPILib_Windows64-<VERSION_DATE>\` option.
+3. Run the `WPILibInstaller.exe`.
+4. Follow the general instructions below
+
+### Linux
+
+1. Download the `Linux (x64)` file in the latest release. 
+2. Run the following commands in the folder you downloaded the file in
+
+```sh
+tar -xf WPILib_Linux-<version>.tar.gz
+cd WPILib_Linux-<version>/
+./WPILibInstaller
+```
+
+_Post-installation ***note***: Some Linux distributions will require you to give opening permissions for `.desktop` files. To give these permissions, simply run `chmod a+x <PATH_TO_DESKTOP_FILE>`. To start the application, some distributions like Ubuntu have built in launchers (opened by pressing `super`); otherwise, install a program like [rofi](https://github.com/davatorium/rofi)._
+
+### General 
+
+- When you are asked to select the install mode you would like, select `Everything`.
+- The installer will ask you how you would like to install/handle the VSCode installation. It is easiest if you select `Download for this computer only (fastest)`, regadless of your OS or distro.
+- This year, we will be using Java for all robot programming. Please follow the Java installation guide on your newly installed WPILib VSCode IDE.
+
 ## Java Installation
 
 > [!NOTE]
