@@ -52,7 +52,9 @@ One of the commands should output something like `C:\Program Files\Java\jdk-17\b
 
 #### Install the JDK:
 As of now, WPILib primarily supports Java 17, so we will have to explicitly install an older version of Java.
+
 Arch: `yay -S jdk17-openjdk` (or your AUR helper of choice)
+
 Debian: `sudo apt-get install openjdk-17-jdk`
 
 #### Identify the installation location and link the path
