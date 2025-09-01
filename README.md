@@ -80,3 +80,35 @@ If you ever plan on running commands for FRC outside of the WPILib integrated te
 
 #### Verify your installation
 Run `java -version` to verify that you have properly installed Java and that it is using version 17.
+
+## Tools
+
+### Advantage Kit
+Logging is a key debugging strategy for understanding what went wrong in your code or how to make improvements. Advantage Kit serves as a comprehensive logging tool that enables you to collect all sensor data, inputs, and outputs so you can replay what happened in a match by using a simulation. The [Advantage Kit manual swerve drive with Talon FX](https://docs.advantagekit.org/getting-started/template-projects/talonfx-swerve-template/) serves as our base swerve implementation.
+
+### CTRE Swerve API
+Our base swerve code interacts with the CTRE Swerve API using 4 core classes:
+- `SwerveDrivetrainConstants`: Handles characteristicsof the robot that are not module specific(CAN bus, Pigeon 2 ID, etc).
+- `SwerveModuleConstantsFactory`: Factory class that is used to instantiate `SwerveModuleConstants` for each module on the robot.
+- `SwerveModuleConstants`: Represents the characteristics for a given module.
+- `SwerveDrivetrain`: Created using `SwerveDrivetrainConstants` and a `SwerveModuleConstants` for each module. Used to control the swerve drivetrain.
+
+For more information view the [swerve api article](https://v6.docs.ctr-electronics.com/en/latest/docs/api-reference/mechanisms/swerve/swerve-builder-api.html) and the [swerve requests article](https://v6.docs.ctr-electronics.com/en/latest/docs/api-reference/mechanisms/swerve/swerve-builder-api.html).
+
+### MapleSim
+Although less useful once we have access to a physical robot, MapleSim is a powerful physics simulation tool that can emulate robot movement and interaction with game pieces. More details on the simulation integration with CTRE Swerve and Advantage Kit can be found [here](https://v6.docs.ctr-electronics.com/en/latest/docs/api-reference/simulation/simulation-intro.html).
+
+### Choreo
+The first 15 seconds of every FRC game involves an autonomous phase. Scoring as many points as possible during this phase is important because there are point bonuses and you don't have any defensive robots attempting to stop you from scoring. Choreo is a path planning tool that uses an intuitive GUI. Beyond creating simple paths, combining this movement with automatic scoring and chaining together auton paths depending on the robot's location and whether or not points were successfully scored, there are a multitude of ways to make an effective autonomous system. See more documentation on creating autos on the [docs](https://choreo.autos/choreolib/auto-factory/).
+
+To install Choreo, visit the [GitHub releases page](https://github.com/SleipnirGroup/Choreo/releases) and scroll down to Assets. If you are on **Windows**, use the `Choreo-<VERSION_NUMBER>-Windows-x86_64-setup.exe` installer. If you are on a **Debian** based Linux distro (e.g. Ubuntu) download the `Choreo-<VERSION_NUMBER>-Linux-x86_64.deb` installer, switch to the directory you installed the file in, and run `sudo apt install ./Choreo-<VERSION_NUMBER>-Linux-x86_64.deb`. If you are on an **Arch** based distro, simply run `yay -S slepinirgroup-choreo-bin` (or use your AUR helper of choice).
+
+### PhotonVision
+Most FRC games will have some form of reflective tape or AprilTags that can be easily identified by using computer vision (CV). Not only does CV help us generate accurate odometry and localize our robot, but it can also help create features like autoaim. In tandem with command-based programming, we can use AprilTag detections to line up the robot to enhance the drivers ability to score.
+
+PhotonVision requires a coprocessor to run CV. We will likely use the OrangePi or RaspberryPi with a simple networking setup to interface with the other code and subsystems using the RoboRio. 
+
+All installation details, API documentation, and code examples can be found on the [PhotonVision documentation](https://docs.photonvision.org/en/latest/index.html).
+
+> [!TIP]
+> After cloning the repo, all vendor dependencies should be automatically installed after building with `./gradlew build`, but if they aren't installed, all of them can be found by hitting `Ctrl+Shift+P` and selecting the `View: Show WPILib Vendor Dependencies` option.
