@@ -114,3 +114,42 @@ All installation details, API documentation, and code examples can be found on t
 
 > [!TIP]
 > After cloning the repo, all vendor dependencies should be automatically installed after building with `./gradlew build`, but if they aren't installed, all of them can be found by hitting `Ctrl+Shift+P` and selecting the `View: Show WPILib Vendor Dependencies` option.
+
+### Git
+Git is a version management tool. The platform that this repository is hosted on, GitHub, is based on Git. In order to make storing, sharing, and contributing to the project easier, all code for the robot will be managed using Git.
+
+Below are some resources for learning Git.
+- [Oh My Git (Game)](https://ohmygit.org/)
+- [Git - The Simple Guide](https://rogerdudler.github.io/git-guide/)
+- [Git Explained in 100 Seconds](https://www.youtube.com/watch?v=hwP7WQkmECE&t=9s)
+
+To clone this repo run:
+```sh
+git clone https://github.com/RedshiftRobotics3676/2026-Redshift-Base.git
+```
+
+After you make changes, commit them by running:
+```sh
+git add . # Adds all files, target a specific file with 'git add <path/to/file>'
+git commit -m "Your very cool message about how you contributed to the project"
+```
+
+Finally, if you no changes were made to the remote repository (by other people contributing to the GitHub repo), you can run:
+```sh
+git push
+```
+
+If you haven't already configured your user, install the [GitHub CLI](https://cli.github.com/) and run the following:
+```sh
+git config --global user.name "<YOUR_GITHUB_USERNAME>"
+git config --global user.email "<YOUR_GITHUB_EMAIL>"
+gh auth login # Select HTTPS and login through your web browser
+```
+
+If someone did happen to make changes, try pulling the changes with a rebase (only works if you changed separate unrelated parts of the project).
+```sh
+git config --global pull.rebase true
+git pull
+```
+
+Otherwise, if there are merge conflicts, `git status` to identify all conflicting files, resolve the conflicts, stage the changes, and commit them again. Find more details on merging [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
