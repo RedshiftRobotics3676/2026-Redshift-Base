@@ -1,3 +1,7 @@
+> [!IMPORTANT]
+> - If you encounter any issues while trying to set up the project initially, the bottom of this README has a troubleshooting issues detailing solutions to common issues.
+> - Additional documentation can be found in the `docs` folder. 
+
 ## WPILib Installation
 
 For a more comprehensive installation guide, visit the [WPILib docs](https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-2/wpilib-setup.html). Otherwise, follow the appropriate guide below. All installers can be found on [the latest GitHub WPILib release](https://github.com/wpilibsuite/allwpilib/releases/).
@@ -11,7 +15,7 @@ For a more comprehensive installation guide, visit the [WPILib docs](https://doc
 
 ### Linux
 
-1. Download the `Linux (x64)` file in the latest release. 
+1. Download the `Linux (x64)` file in the latest release.
 2. Run the following commands in the folder you downloaded the file in
 
 ```sh
@@ -22,7 +26,7 @@ cd WPILib_Linux-<version>/
 
 _Post-installation ***note***: Some Linux distributions will require you to give opening permissions for `.desktop` files. To give these permissions, simply run `chmod a+x <PATH_TO_DESKTOP_FILE>`. To start the application, some distributions like Ubuntu have built in launchers (opened by pressing `super`); otherwise, install a program like [rofi](https://github.com/davatorium/rofi)._
 
-### General 
+### General
 
 - When you are asked to select the install mode you would like, select `Everything`.
 - The installer will ask you how you would like to install/handle the VSCode installation. It is easiest if you select `Download for this computer only (fastest)`, regadless of your OS or distro.
@@ -108,7 +112,7 @@ To install Choreo, visit the [GitHub releases page](https://github.com/SleipnirG
 ### PhotonVision
 Most FRC games will have some form of reflective tape or AprilTags that can be easily identified by using computer vision (CV). Not only does CV help us generate accurate odometry and localize our robot, but it can also help create features like autoaim. In tandem with command-based programming, we can use AprilTag detections to line up the robot to enhance the drivers ability to score.
 
-PhotonVision requires a coprocessor to run CV. We will likely use the OrangePi or RaspberryPi with a simple networking setup to interface with the other code and subsystems using the RoboRio. 
+PhotonVision requires a coprocessor to run CV. We will likely use the OrangePi or RaspberryPi with a simple networking setup to interface with the other code and subsystems using the RoboRio.
 
 All installation details, API documentation, and code examples can be found on the [PhotonVision documentation](https://docs.photonvision.org/en/latest/index.html).
 
@@ -153,3 +157,8 @@ git pull
 ```
 
 Otherwise, if there are merge conflicts, `git status` to identify all conflicting files, resolve the conflicts, stage the changes, and commit them again. Find more details on merging [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
+
+## Troubleshooting
+
+### Gradle Build Issues
+9 times out of 10, any nasty Gradle build errors will happen if have the wrong version of Java installed, or you added new packages incorrectly. The easiest way to check if you have the wrong Java version installed is to run `java -version` in the terminal you are using. If it displays anything other than version 17, refer back to the [Java Installation](#java-installation) section. Otherwise, look at previous commits of the `build.gradle` file to confirm no breaking changes have been made. If none of these things solve the problem, run the gradle command with the `-s` option to see a more detailed overview of the errors.
