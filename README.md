@@ -1,6 +1,6 @@
 > [!IMPORTANT]
 > - If you encounter any issues while trying to set up the project initially, the bottom of this README has a troubleshooting section detailing solutions to common issues.
-> - Additional documentation can be found in the `docs` folder. 
+> - Additional documentation can be found in the `docs` folder.
 
 ## WPILib Installation
 

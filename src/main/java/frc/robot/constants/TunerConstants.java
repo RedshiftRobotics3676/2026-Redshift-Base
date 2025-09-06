@@ -1,5 +1,7 @@
 package frc.robot.constants;
 
+import static edu.wpi.first.units.Units.*;
+
 import com.ctre.phoenix6.CANBus;
 import com.ctre.phoenix6.configs.CANcoderConfiguration;
 import com.ctre.phoenix6.configs.CurrentLimitsConfigs;
@@ -17,22 +19,11 @@ import com.ctre.phoenix6.swerve.SwerveModuleConstants.DriveMotorArrangement;
 import com.ctre.phoenix6.swerve.SwerveModuleConstants.SteerFeedbackType;
 import com.ctre.phoenix6.swerve.SwerveModuleConstants.SteerMotorArrangement;
 import com.ctre.phoenix6.swerve.SwerveModuleConstantsFactory;
-
 import edu.wpi.first.math.Matrix;
 import edu.wpi.first.math.numbers.N1;
 import edu.wpi.first.math.numbers.N3;
-import static edu.wpi.first.units.Units.Amps;
-import static edu.wpi.first.units.Units.Inches;
-import static edu.wpi.first.units.Units.KilogramSquareMeters;
-import static edu.wpi.first.units.Units.MetersPerSecond;
-import static edu.wpi.first.units.Units.Rotations;
-import static edu.wpi.first.units.Units.Volts;
-import edu.wpi.first.units.measure.Angle;
-import edu.wpi.first.units.measure.Current;
-import edu.wpi.first.units.measure.Distance;
-import edu.wpi.first.units.measure.LinearVelocity;
-import edu.wpi.first.units.measure.MomentOfInertia;
-import edu.wpi.first.units.measure.Voltage;
+import edu.wpi.first.units.measure.*;
+import frc.robot.subsystems.CommandSwerveDrivetrain;
 
 public class TunerConstants {
   // TODO: Tune the motor PID gains
@@ -252,10 +243,10 @@ public class TunerConstants {
    * Creates a CommandSwerveDrivetrain instance. This should only be called once in your robot
    * program,.
    */
-  //   public static CommandSwerveDrivetrain createDrivetrain() {
-  //     return new CommandSwerveDrivetrain(
-  //         DrivetrainConstants, FrontLeft, FrontRight, BackLeft, BackRight);
-  //   }
+  public static CommandSwerveDrivetrain createDrivetrain() {
+    return new CommandSwerveDrivetrain(
+        DrivetrainConstants, FrontLeft, FrontRight, BackLeft, BackRight);
+  }
 
   /** Swerve Drive class utilizing CTR Electronics' Phoenix 6 API with the selected device types. */
   public static class TunerSwerveDrivetrain extends SwerveDrivetrain<TalonFX, TalonFX, CANcoder> {
